@@ -5,6 +5,7 @@ public class Libro {
     private int pagine;
     private double prezzo;
     private static int codice;
+    public static int nLibri;
 
     public Libro(String titolo, String autore, String genere, int pagine, double prezzo) {
         this.titolo = titolo;
@@ -13,6 +14,7 @@ public class Libro {
         this.pagine = pagine;
         this.prezzo = prezzo;
         codice++;
+        nLibri++;
     }
 
     public String getTitolo() {
@@ -55,4 +57,16 @@ public class Libro {
         this.prezzo = prezzo;
     }
 
+    public static int getCodice() {
+        return codice;
+    }
+
+    public static void setCodice(int codice) {
+        Libro.codice = codice;
+    }
+
+    public String toString() {
+
+        return null;
+    }
 }
