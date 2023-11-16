@@ -7,4 +7,12 @@ public class DipendenteScolastico extends Persona {
         super(nome, cognome, eta, dataNascita, luogoNascita, sesso);
         this.stipendio = stipendio;
     }
+
+    public double getStipendio() {
+        return stipendio;
+    }
+
+    public void setStipendio(double stipendio) {
+        this.stipendio = stipendio;
+    }
 }

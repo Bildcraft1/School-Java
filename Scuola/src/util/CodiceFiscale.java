@@ -5,14 +5,16 @@ public class CodiceFiscale {
         StringBuilder cf = new StringBuilder();
 
         // Aggiungi i codici relativi al cognome e al nome.
-        cf.append(getCodeFromName(cognome).toUpperCase());
-        cf.append(getCodeFromName(nome).toUpperCase());
+        cf.append(getCodeFromName(cognome.toUpperCase().replaceAll("\\s", "")));
+        cf.append(getCodeFromName(nome.toUpperCase().replaceAll("\\s", "")));
 
         // Aggiungi il codice relativo alla data di nascita e al sesso.
         cf.append(getCodeFromDateAndSex(dataNascita, sesso));
 
         // Aggiungi il codice del comune di nascita.
         cf.append(getCodeFromPlace(luogoNascita));
+
+        if(cf.toString().contains("NON ESISTENTE")) return "Codice comune non esistente";
 
         // Calcola il carattere di controllo e aggiungilo.
         cf.append(calcolaCarattereControllo(cf.toString()));
@@ -89,14 +91,6 @@ public class CodiceFiscale {
             }
         }
 
-        // Aggiungi le vocali.
-        for (int i = 0; i < nome.length(); i++) {
-            char c = nome.charAt(i);
-            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
-                code.append(c);
-            }
-        }
-
         // Aggiungi le X.
         while (code.length() < 3) {
             code.append('X');
@@ -104,6 +98,10 @@ public class CodiceFiscale {
 
         // Tronca a 3 caratteri.
         return code.substring(0, 3);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(generaCF("Andrea", "Moro Detto Rocco", "20/02/2006", "PORTOGURATO", "M"));
     }
 
 }

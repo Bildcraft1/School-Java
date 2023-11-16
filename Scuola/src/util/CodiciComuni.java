@@ -9,6 +9,7 @@ public enum CodiciComuni {
     GO ("D969", "GORIZIA"),
     PN ("G942", "PORDENONE"),
     VE ("L736", "VENEZIA"),
+    SDP("H823", "SAN DONà DI PIAVE")
     ;
 
     private final String codice;
