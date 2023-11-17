@@ -15,4 +15,10 @@ public class DipendenteScolastico extends Persona {
     public void setStipendio(double stipendio) {
         this.stipendio = stipendio;
     }
+
+    @Override
+    public String toString() {
+        return "Dipendente Scolastico: " + super.toString() +
+                "Stipendio: " + stipendio + "€" +  "\n";
+    }
 }

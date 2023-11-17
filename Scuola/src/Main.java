@@ -1,12 +1,32 @@
+import persone.Docente;
 import persone.Persona;
-import persone.Studente;
+import util.Menu;
 
 public class Main {
     public static void main(String[] args) {
         Scuola s = new Scuola();
-        s.aggiungiPersona(new Persona("Andrea", "Moro Detto Rocco", 17, "20/02/2006", "Udine", "M"));
-        s.aggiungiStudente(new Studente("Luca", "Bianchi", 20, "01/01/2000", "Udine", "M", "4A"));
+        Menu.show();
 
-        System.out.println(s);
+        int choice = Menu.choice();
+        while (choice != 0) {
+            switch (choice) {
+                case 1:
+                    s.aggiungiPersona(Persona.creaPersona());
+                    break;
+                case 2:
+                    s.addStudente();
+                    break;
+                case 3:
+                    s.addDocente(Docente.creaDocente());
+                    break;
+                case 4:
+                    s.stampaPersone();
+                    break;
+                default:
+                    System.out.println("Scelta non valida");
+            }
+            Menu.show();
+            choice = Menu.choice();
+        }
     }
 }
