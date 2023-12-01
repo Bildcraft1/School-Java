@@ -30,6 +30,44 @@ public class Input {
         return x;
     }
 
+    public static char getChar() {
+        String temp = scanner.nextLine();
+        char x;
+        try {
+            x = temp.charAt(0);
+        } catch (StringIndexOutOfBoundsException e) {
+            x = ' ';
+        }
+
+        return x;
+    }
+
+    public static String getLine() {
+        return scanner.nextLine();
+    }
+
+    public static String[] getGeneralInfo() {
+        System.out.println("Inserisci nome: ");
+        String nome = Input.getString();
+        System.out.println("Inserisci cognome: ");
+        String cognome = Input.getString();
+        int eta = 0;
+        do {
+            System.out.println("Inserisci età: ");
+            eta = Input.getInt();
+            if(eta < 0) {
+                System.out.println("Età non valida");
+            }
+        } while (eta <= 1);
+        System.out.println("Inserisci data di nascita  (Formato GG/MM/YYYY): ");
+        String dataNascita = Input.getString();
+        System.out.println("Inserisci luogo di nascita: ");
+        String luogoNascita = Input.getString();
+        System.out.println("Inserisci sesso (M/F): ");
+        String sesso = Input.getString();
+        return new String[]{nome, cognome, Integer.toString(eta), dataNascita, luogoNascita, sesso};
+    }
+
     public static String getString() {
         return scanner.nextLine();
     }

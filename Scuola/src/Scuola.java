@@ -4,8 +4,13 @@ import persone.Studente;
 import java.util.Arrays;
 
 public class Scuola {
-    private Persona[] persone = new Persona[20];
+    private final Persona[] persone = new Persona[20];
     private static int numeroPersone;
+    private String nome;
+
+    public Scuola(String nome) {
+        this.nome = nome;
+    }
 
     public void aggiungiPersona(Persona p) {
         for (int i = 0; i < persone.length; i++) {
@@ -17,7 +22,7 @@ public class Scuola {
         }
     }
 
-    public void addDocente(Persona p) {
+    public void aggiungiDocente(Persona p) {
         aggiungiPersona(p);
     }
 
@@ -38,7 +43,5 @@ public class Scuola {
                 '}';
     }
 
-    public void addStudente() {
-    }
 
 }

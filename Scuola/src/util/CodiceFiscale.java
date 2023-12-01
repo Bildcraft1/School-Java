@@ -14,7 +14,7 @@ public class CodiceFiscale {
         // Aggiungi il codice del comune di nascita.
         cf.append(getCodeFromPlace(luogoNascita));
 
-        if(cf.toString().contains("NON ESISTENTE")) return "Codice comune non esistente";
+        if (cf.toString().contains("NON ESISTENTE")) return "Codice comune non esistente";
 
         // Calcola il carattere di controllo e aggiungilo.
         cf.append(calcolaCarattereControllo(cf.toString()));
@@ -101,7 +101,7 @@ public class CodiceFiscale {
     }
 
     public static void main(String[] args) {
-        System.out.println(generaCF("Andrea", "Moro Detto Rocco", "20/02/2006", "PORTOGURATO", "M"));
+        System.out.println(generaCF("Andrea", "Moro Detto Rocco", "20/02/2006", "UD", "M"));
     }
 
 }

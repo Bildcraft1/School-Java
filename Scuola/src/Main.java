@@ -1,10 +1,11 @@
 import persone.Docente;
 import persone.Persona;
+import persone.Studente;
 import util.Menu;
 
 public class Main {
     public static void main(String[] args) {
-        Scuola s = new Scuola();
+        Scuola s = new Scuola("ITTS Volterra");
         Menu.show();
 
         int choice = Menu.choice();
@@ -14,13 +15,16 @@ public class Main {
                     s.aggiungiPersona(Persona.creaPersona());
                     break;
                 case 2:
-                    s.addStudente();
+                    s.aggiungiStudente(Studente.creaStudente());
                     break;
                 case 3:
-                    s.addDocente(Docente.creaDocente());
+                    s.aggiungiDocente(Docente.creaDocente());
                     break;
                 case 4:
                     s.stampaPersone();
+                    break;
+                case 5:
+                    System.out.println(s);
                     break;
                 default:
                     System.out.println("Scelta non valida");

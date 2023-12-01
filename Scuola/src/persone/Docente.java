@@ -2,8 +2,9 @@ package persone;
 
 import util.Input;
 
-import javax.print.Doc;
-
+/**
+ * Classe che rappresenta un docente
+ */
 public class Docente extends DipendenteScolastico {
     private String materia;
     private int ore;
@@ -30,28 +31,29 @@ public class Docente extends DipendenteScolastico {
         this.ore = ore;
     }
 
+
+    /**
+     * Crea un docente
+     *
+     * @return Docente creato
+     */
     public static Docente creaDocente() {
-        System.out.println("Inserisci nome: ");
-        String nome = Input.getString();
-        System.out.println("Inserisci cognome: ");
-        String cognome = Input.getString();
-        System.out.println("Inserisci età: ");
-        int eta = Input.getInt();
-        System.out.println("Inserisci data di nascita  (Formato GG/MM/YYYY): ");
-        String dataNascita = Input.getString();
-        System.out.println("Inserisci luogo di nascita: ");
-        String luogoNascita = Input.getString();
-        System.out.println("Inserisci sesso (M/F): ");
-        String sesso = Input.getString();
+        String[] dati = Input.getGeneralInfo();
         System.out.println("Inserisci stipendio: ");
         double stipendio = Input.getDouble();
         System.out.println("Inserisci materia: ");
         String materia = Input.getString();
         System.out.println("Inserisci ore: ");
         int ore = Input.getInt();
-        return new Docente(nome, cognome, eta, dataNascita, luogoNascita, sesso, stipendio, materia, ore);
+        return new Docente(dati[0], dati[1], Integer.parseInt(dati[2]), dati[3], dati[4], dati[5], stipendio, materia, ore);
     }
 
+
+    /**
+     * Stampa il docente
+     *
+     * @return Stringa contenente il docente
+     */
     @Override
     public String toString() {
         return "Docente: " + super.toString() +
@@ -59,8 +61,15 @@ public class Docente extends DipendenteScolastico {
                 "Ore: " + ore + "\n";
     }
 
+
+    /**
+     * Metodo main usato per testing
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Docente d = new Docente("Andrea", "Moro Detto Rocco", 17, "20/02/2006", "Udine", "M", 1000, "Informatica", 20);
-        System.out.println(d);
+        System.out.println(d.getClass().getName());
+
     }
 }

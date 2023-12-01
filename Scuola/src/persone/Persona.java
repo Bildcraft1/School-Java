@@ -47,19 +47,8 @@ public class Persona {
     }
 
     public static Persona creaPersona() {
-        System.out.println("Inserisci nome: ");
-        String nome = Input.getString();
-        System.out.println("Inserisci cognome: ");
-        String cognome = Input.getString();
-        System.out.println("Inserisci età: ");
-        int eta = Input.getInt();
-        System.out.println("Inserisci data di nascita  (Formato GG/MM/YYYY): ");
-        String dataNascita = Input.getString();
-        System.out.println("Inserisci luogo di nascita: ");
-        String luogoNascita = Input.getString();
-        System.out.println("Inserisci sesso (M/F): ");
-        String sesso = Input.getString();
-        return new Persona(nome, cognome, eta, dataNascita, luogoNascita, sesso);
+        String[] dati = Input.getGeneralInfo();
+        return new Persona(dati[0], dati[1], Integer.parseInt(dati[2]), dati[3], dati[4], dati[5]);
     }
 
     @Override
@@ -74,10 +63,11 @@ public class Persona {
     }
 
     public static void main(String[] args) {
-        Persona[] p = new Persona[3];
+        Persona[] p = new Persona[4];
         p[0] = new Persona("Zio", "Perone", 17, "20/02/2006", "Cina", "M");
         p[1] = new Persona("Luca", "Bianchi", 20, "01/01/2000", "Udine", "M");
         p[2] = new Persona("Giulia", "Verdi", 20, "01/01/2000", "Udine", "F");
+        p[3] = creaPersona();
 
         for (Persona persona : p) {
             System.out.println(persona);
