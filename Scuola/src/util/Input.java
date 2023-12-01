@@ -51,6 +51,7 @@ public class Input {
         String nome = Input.getString();
         System.out.println("Inserisci cognome: ");
         String cognome = Input.getString();
+
         int eta = 0;
         do {
             System.out.println("Inserisci età: ");
@@ -59,12 +60,20 @@ public class Input {
                 System.out.println("Età non valida");
             }
         } while (eta <= 1);
+
         System.out.println("Inserisci data di nascita  (Formato GG/MM/YYYY): ");
         String dataNascita = Input.getString();
         System.out.println("Inserisci luogo di nascita: ");
         String luogoNascita = Input.getString();
         System.out.println("Inserisci sesso (M/F): ");
         String sesso = Input.getString();
+
+        while (sesso.toLowerCase().charAt(0) != 'm' || sesso.toLowerCase().charAt(0) != 'f') {
+            System.out.println("Sesso non valido");
+            System.out.println("Inserisci sesso (M/F): ");
+            sesso = Input.getString();
+        }
+
         return new String[]{nome, cognome, Integer.toString(eta), dataNascita, luogoNascita, sesso};
     }
 
